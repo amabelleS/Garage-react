@@ -36,3 +36,5 @@ function App() {
 }
 
 export default App;
+
+// git remote add origin https://github.com/amabelleS/Garage-react.git
