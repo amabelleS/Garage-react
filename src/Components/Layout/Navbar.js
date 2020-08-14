@@ -12,6 +12,11 @@ export default function Navbar({
         <i class={icon} style={{ margin: "auto 1rem" }}></i>
         {title}
       </h1>
+      <ul>
+        <li>
+          <Link to="/">Enter</Link>
+        </li>
+      </ul>
     </nav>
   );
 }

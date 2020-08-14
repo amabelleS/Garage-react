@@ -69,7 +69,7 @@ export default function Register() {
     }
   };
   return (
-    <div>
+    <div className="">
       <h1>new client</h1>
       <div>
         <input
@@ -107,7 +107,9 @@ export default function Register() {
           type="number"
         ></input>
       </div>
-      <button onClick={handelSubmit}>regisater</button>
+      <button className="btn btn-primary" onClick={handelSubmit}>
+        regisater
+      </button>
     </div>
   );
 }

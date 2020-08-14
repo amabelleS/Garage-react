@@ -26,11 +26,14 @@ export default function Home() {
   return (
     <div className="container">
       <div>
-        <Link to="/register" className="btn">
+        <Link to="/register" className="badge btn-primary">
           register
         </Link>{" "}
       </div>
-      <input placeholder={id ? "id" : "car number"}></input>
+      <div className="flex-1">
+        <input type="text" placeholder={id ? "id" : "car number"}></input>
+        <button className="btn btn-primary btn-sm my-1">find</button>
+      </div>
       <div className="form-group">
         <div>
           <input
