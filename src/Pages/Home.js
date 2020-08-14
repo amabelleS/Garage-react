@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { UsersContext } from "../Context/Users";
 import { Link } from "react-router-dom";
-import usersList from "../Components/UsersList";
 import UsersList from "../Components/UsersList";
 
 export default function Home() {
@@ -19,9 +18,9 @@ export default function Home() {
   //     }
   //   };
 
-  const handleChange = () => {
-    userLogin(id ? id : carNum);
-  };
+  // const handleChange = () => {
+  //   userLogin(id ? id : carNum);
+  // };
 
   return (
     <div className="container">

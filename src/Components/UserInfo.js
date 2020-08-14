@@ -3,15 +3,15 @@ import { UsersContext } from "../Context/Users";
 
 export default function UserInfo(props) {
   const { users } = React.useContext(UsersContext);
-  const user = users.find((user) => user.id == props.id);
+  const user = users.find((user) => user.id === props.id);
   const { name, id, adress, phone, carNum } = user;
   return (
     <div>
-      <p>{user.name}</p>
-      <p>{user.id}</p>
-      <p>{user.adress}</p>
-      <p>{user.phone}</p>
-      <p>{user.carNum}</p>
+      <p>{name}</p>
+      <p>{id}</p>
+      <p>{adress}</p>
+      <p>{phone}</p>
+      <p>{carNum}</p>
       <button onClick={props.toggleInfo}>hide</button>
     </div>
   );

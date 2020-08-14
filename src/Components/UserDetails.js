@@ -1,12 +1,12 @@
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import { UsersContext } from "../Context/Users";
-import { CarContext } from "../Context/CarProblems";
+// import { CarContext } from "../Context/CarProblems";
 import { useParams } from "react-router-dom";
 import UserInfo from "../Components/UserInfo";
 
 export default function UserDetails() {
-  const { users } = React.useContext(UsersContext);
-  const { carProblems, addProblem } = React.useContext(CarContext);
+  // const { users } = React.useContext(UsersContext);
+  // const { carProblems, addProblem } = React.useContext(CarContext);
   const { id } = useParams();
 
   const [showInfo, setShoeInfo] = useState(false);
