@@ -24,8 +24,7 @@ export default function Home() {
   };
 
   return (
-    <div>
-      <h1>SV-Garage</h1>
+    <div className="container">
       <div>
         <Link to="/register" className="btn">
           register

@@ -6,13 +6,15 @@ import { UsersProvider } from "./Context/Users";
 import { CarProvider } from "./Context/CarProblems";
 
 import Home from "./Pages/Home";
+import Navbar from "./Components/Layout/Navbar";
 import Register from "./Pages/Register";
 import UserDetails from "./Components/UserDetails";
 
 function App() {
   return (
-    <div className="App">
+    <div className="text-center">
       <Router>
+        <Navbar />
         <Switch>
           <UsersProvider>
             <Route exact path="/">
@@ -38,3 +40,5 @@ function App() {
 export default App;
 
 // git remote add origin https://github.com/amabelleS/Garage-react.git
+
+// check this up on:  https://simple-garage.netlify.app/
