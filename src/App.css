@@ -1,38 +1,201 @@
+body {
+  font-family: "Roboto";
+  font-size: 14px;
+  /* background-size: 200% 100% !important; */
+  /* animation: move 10s ease infinite; */
+  /* transform: translate3d(0, 0, 0); */
+  /* background: linear-gradient(45deg, #49d49d 10%, #a2c7e5 90%); */
+  height: 100vh;
+}
+
 .App {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.register-container {
+  margin-top: 30vh;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.form-container {
+  margin: 32vh;
+  height: 33vh;
+  width: 50vw;
+  animation: arrive 500ms ease-in-out 0.9s forwards;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* list item*/
+.card {
+  border-radius: 6px;
+  background-color: lemonchiffon;
+  padding: 0.4rem;
+  margin: 1rem 3rem;
+  box-shadow: 2px 3px 4px 1px rgba(198, 201, 40, 0.68);
+
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.card:hover {
+  background-color: rgb(238, 230, 197);
+  cursor: pointer;
+}
+
+/* BTNS */
+.btn {
+  text-transform: uppercase;
+  background: var(--clr-primary-5);
+  color: var(--clr-primary-10);
+  padding: 0.375rem 0.75rem;
+  letter-spacing: var(--spacing);
+  display: inline-block;
+  font-weight: 400;
+  transition: var(--transition);
+  font-size: 0.875rem;
+  border: 2px solid transparent;
+  cursor: pointer;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  border-radius: var(--radius);
+}
+.btn:hover {
+  background: var(--clr-primary-8);
+  color: var(--clr-primary-1);
+}
+
+.button {
+  display: inline-block;
+  text-shadow: 0px 0px 0px rgba(255, 255, 255, 0.75);
+  position: relative;
+  border-radius: 3px;
+  text-decoration: none;
+  padding: 0.5em;
+  margin: 0.5em;
+  font-size: 2em;
+  font-weight: bold;
+  transition: all 0.5s;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.button:hover {
+  /* text-shadow: 0px 0px 0px rgba(255, 255, 255, 0.75); */
+  filter: hue-rotate(135deg);
+}
+.button:hover:after {
+  left: 100%;
+  top: 100%;
+  bottom: 100%;
+  right: 100%;
+}
+.button:before {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  z-index: -1;
+  border-radius: 5px;
+  transition: all 0.5s;
+}
+.button:after {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 2px;
+  top: 2px;
+  bottom: 2px;
+  right: 2px;
+  z-index: -1;
+  border-radius: 5px;
+  transition: all 0.5s;
+}
+
+/*PINK*/
+.b-pink,
+.b-pink:before {
+  background: rgba(231, 72, 234, 1);
+  background: -moz-linear-gradient(
+    45deg,
+    rgba(231, 72, 234, 1) 0%,
+    rgba(75, 26, 188, 1) 100%
+  );
+  background: -webkit-gradient(
+    left bottom,
+    right top,
+    color-stop(0%, rgba(231, 72, 234, 1)),
+    color-stop(100%, rgba(75, 26, 188, 1))
+  );
+  background: -webkit-linear-gradient(
+    45deg,
+    rgba(231, 72, 234, 1) 0%,
+    rgba(75, 26, 188, 1) 100%
+  );
+  background: -o-linear-gradient(
+    45deg,
+    rgba(231, 72, 234, 1) 0%,
+    rgba(75, 26, 188, 1) 100%
+  );
+  background: -ms-linear-gradient(
+    45deg,
+    rgba(231, 72, 234, 1) 0%,
+    rgba(75, 26, 188, 1) 100%
+  );
+  background: linear-gradient(
+    45deg,
+    rgba(231, 72, 234, 1) 0%,
+    rgba(75, 26, 188, 1) 100%
+  );
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e748ea', endColorstr='#4b1abc', GradientType=1 );
+}
+
+.rainbow-button {
+  border: none;
+  padding: 1em;
+  outline: none;
   color: white;
+  text-transform: uppercase;
+  font-weight: 900;
+  font-style: 1.2em;
+  letter-spacing: 0.2em;
+  position: relative;
+  z-index: 1;
+  cursor: pointer;
+  background: none;
+  text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.45);
 }
 
-.App-link {
-  color: #61dafb;
+.rainbow-button:before,
+.rainbow-button:after {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border-radius: 10em;
+  transform: translateX(-50%) translateY(-50%);
+  width: 105%;
+  height: 105%;
+  content: "";
+  z-index: -2;
+  background-size: 400% 400%;
+  background: linear-gradient(
+    60deg,
+    #f79533,
+    #f37055,
+    #ef4e7b,
+    #a166ab,
+    #5073b8,
+    #1098ad,
+    #07b39b,
+    #6fba82
+  );
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.rainbow-button:before {
+  filter: blur(7px);
+  transition: all 0.25s ease;
+  animation: pulse 10s infinite ease;
+}
+.rainbow-button:after {
+  filter: blur(0.3px);
+}
+.rainbow-button:hover {
 }
