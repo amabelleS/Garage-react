@@ -10,13 +10,20 @@ export default function Register() {
   const [adress, setAdress] = useState("");
   const [phone, setPhone] = useState("");
   const [carNum, setCarNaum] = useState("");
+  const [error, setError] = useState();
 
   const { addUser } = React.useContext(UsersContext);
+
+  //erroes
+  // const writeError = (err) => {
+  //   setError(err);
+  // };
 
   //validations:
   const okName = () => {
     if (!isNaN(name)) {
-      alert("bad name");
+      setError("badName");
+      // alert("bad name");
       return false;
     }
     return true;
@@ -24,7 +31,8 @@ export default function Register() {
 
   const okId = () => {
     if (isNaN(id) || id.length !== 9) {
-      alert("wrong id");
+      setError("wrong id");
+      // alert("wrong id");
       return false;
     } else {
       return true;
@@ -32,8 +40,8 @@ export default function Register() {
   };
 
   const okCarNum = () => {
-    if (isNaN(carNum)) {
-      alert("wrong carNum");
+    if (!carNum || isNaN(carNum)) {
+      setError("wrong carNum");
       return false;
     } else {
       return true;
@@ -42,7 +50,7 @@ export default function Register() {
 
   const okPhone = () => {
     if (isNaN(phone) || phone.length < 7) {
-      alert("wrong phone");
+      setError("wrong phone");
       return false;
     } else {
       return true;
@@ -50,19 +58,21 @@ export default function Register() {
   };
 
   const okAdress = () => {
-    return adress.length > 0;
+    if (!adress.length > 0) {
+      setError("enter adress");
+      return false;
+    } else return true;
   };
 
   const validateAll = () => {
-    if (okId() && okName() && okAdress() && okPhone() && okCarNum()) {
+    if (okName() && okId() && okAdress() && okPhone() && okCarNum()) {
       return true;
-    }
-    return false;
+    } else return false;
   };
 
   const handelSubmit = () => {
+    setError("");
     if (validateAll()) {
-      //   alert("ok");
       let user = { name, id, adress, phone, carNum };
       addUser(user);
       history.push("/");
@@ -70,8 +80,9 @@ export default function Register() {
   };
   return (
     <div className="">
-      <h1>new client</h1>
+      <h1 className="text-primary">new client</h1>
       <div>
+        {error && <p>{error}</p>}
         <input
           placeholder="full name"
           value={name}

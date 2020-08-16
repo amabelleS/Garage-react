@@ -1,37 +1,48 @@
 import React, { useState } from "react";
 import { UsersContext } from "../Context/Users";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import UsersList from "../Components/UsersList";
 
 export default function Home() {
-  const { users, userLogin } = React.useContext(UsersContext);
+  const history = useHistory();
+  const { users, user, setUser } = React.useContext(UsersContext);
 
   const [id, setId] = useState(true);
   const [carNum, setCarNum] = useState(false);
-  //   const [isId, setIsid] = useState(true);
+  const [searchValue, setSearchValue] = useState("");
 
-  //   const showUsersBy = () => {
-  //     if (id) {
-  //       return <UsersList by={id} users={users} />;
-  //     } else {
-  //       return <UsersList by={carNum} users={users} />;
-  //     }
-  //   };
-
-  // const handleChange = () => {
-  //   userLogin(id ? id : carNum);
-  // };
+  const handelSearch = () => {
+    if (searchValue === "666") {
+      history.push("/admin");
+    }
+    if (searchValue === user.id) {
+      setUser(user.id);
+      history.push(`/home/${user.id}`);
+    }
+    if (searchValue === user.carNum) {
+      setUser(user.id);
+      history.push(`/home/${user.id}`);
+    }
+  };
 
   return (
     <div className="container">
       <div>
-        <Link to="/register" className="badge btn-primary">
+        <Link to="/register" className="badge btn-third">
           register
         </Link>{" "}
       </div>
-      <div className="flex-1">
-        <input type="text" placeholder={id ? "id" : "car number"}></input>
-        <button className="btn btn-primary btn-sm my-1">find</button>
+      <br />
+      <div className="flex-2">
+        <input
+          value={searchValue}
+          onChange={(e) => setSearchValue(e.target.value)}
+          type="number"
+          placeholder={id ? "id" : "car number"}
+        ></input>
+        <button onClick={handelSearch} className="btn btn-sec btn-sm my-1">
+          search
+        </button>
       </div>
       <div className="form-group">
         <div>
@@ -61,7 +72,6 @@ export default function Home() {
           <label htmlFor="carNum">car number</label>
         </div>
       </div>
-      {/* <button onClick={showUsersBy()}>list</button> */}
       <UsersList by={id} users={users} />
     </div>
   );

@@ -17,7 +17,7 @@ export default function UsersList({ users, by }) {
       return (
         <div>
           {users.map((user) => (
-            <Link to={`/home/${user.id}`} className="card-1">
+            <Link key={user.id} to={`/home/${user.id}`} className="card-1">
               {user.carNum}{" "}
             </Link>
           ))}

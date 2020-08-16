@@ -3,6 +3,10 @@
 /* Global Styles */
 :root {
   --primary-color: #dc35c6;
+  --secLight-color: #a0f1f7;
+  --sec-color: #1fbac5;
+  --darkerSec-color: #1b8c94;
+  --third-color: #c51f72;
   --dark-color: #333333;
   --light-color: #f4f4f4;
   --danger-color: #dc3545;
@@ -21,6 +25,7 @@ body {
   line-height: 1.6;
   background-color: #fff;
   color: #333;
+  /* background-image: url("https://pixabay.com/photos/garage-shop-car-fix-hdr-light-943249/"); */
 }
 
 a {
@@ -183,6 +188,11 @@ img {
   justify-content: space-evenly;
 }
 
+.flex-2 {
+  display: flex;
+  justify-content: center;
+}
+
 /* Grid */
 .grid-2 {
   display: grid;
@@ -213,7 +223,7 @@ img {
   margin-right: 0.5rem;
   transition: opacity 0.2s ease-in;
   outline: none;
-  /* margin: 0px 0.2rem; */
+  margin: 0px 0.2rem;
 }
 
 .btn-link {
@@ -225,6 +235,10 @@ img {
 .btn-block {
   display: block;
   width: 100%;
+}
+
+.btn-radius {
+  border-radius: 4.2px;
 }
 
 .btn-sm {
@@ -248,7 +262,7 @@ img {
   padding: 0.7rem;
   margin: 1rem 0;
   opacity: 0.9;
-  background: var(--light-color);
+  background: var(--secLight-color);
   color: #333;
 }
 
@@ -257,6 +271,16 @@ img {
 .badge-primary,
 .alert-primary {
   background: var(--primary-color);
+  color: #fff;
+}
+
+.btn-sec {
+  background: var(--sec-color);
+  color: #fff;
+}
+
+.btn-third {
+  background: var(--third-color);
   color: #fff;
 }
 
@@ -344,6 +368,42 @@ button {
   font: inherit;
 }
 
+/*      TABLE                 */
+.table {
+  text-align: center;
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  border: 3px solid #ddd;
+  width: 92vw;
+  margin: 1rem auto;
+}
+
+.table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.table tr:hover {
+  background-color: var(--secLight-color);
+}
+
+.table th {
+  /* padding-top: 12px;
+  padding-bottom: 12px; */
+  padding: 1rem;
+  text-align: left;
+  background: var(--sec-color);
+  color: white;
+}
+.table th:hover {
+  background-color: var(--darkerSec-color);
+}
+
+/* 
 table th,
 table td {
   padding: 1rem;
@@ -352,7 +412,7 @@ table td {
 
 table th {
   background: var(--light-color);
-}
+} */
 
 /* Navbar */
 .navbar {
@@ -385,7 +445,7 @@ table th {
 }
 
 /* Mobile Styles */
-@media (max-width: 700px) {
+@media (max-width: 420px) {
   .hide-sm {
     display: none;
   }

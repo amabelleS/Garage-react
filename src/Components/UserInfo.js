@@ -6,13 +6,13 @@ export default function UserInfo(props) {
   const user = users.find((user) => user.id === props.id);
   const { name, id, adress, phone, carNum } = user;
   return (
-    <div>
+    <div className="container">
       <p>{name}</p>
       <p>{id}</p>
       <p>{adress}</p>
       <p>{phone}</p>
       <p>{carNum}</p>
-      <button onClick={props.toggleInfo}>hide</button>
+      {/* <button onClick={props.toggleInfo}>hide</button> */}
     </div>
   );
 }

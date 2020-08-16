@@ -9,7 +9,7 @@ import Home from "./Pages/Home";
 import Navbar from "./Components/Layout/Navbar";
 import Register from "./Pages/Register";
 import UserDetails from "./Components/UserDetails";
-
+import Admin from "./Pages/Admin";
 function App() {
   return (
     <div className="text-center">
@@ -29,6 +29,9 @@ function App() {
                 path="/home/:id"
                 children={<UserDetails></UserDetails>}
               ></Route>
+              <Route path="/admin">
+                <Admin />
+              </Route>
             </CarProvider>
           </UsersProvider>
         </Switch>
