@@ -6,7 +6,7 @@ export default function UserInfo(props) {
   const user = users.find((user) => user.id === props.id);
   const { name, id, adress, phone, carNum } = user;
   return (
-    <div className="container">
+    <div className="container grid-4">
       <p>{name}</p>
       <p>{id}</p>
       <p>{adress}</p>

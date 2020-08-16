@@ -22,8 +22,7 @@ export default function Register() {
   //validations:
   const okName = () => {
     if (!isNaN(name)) {
-      setError("badName");
-      // alert("bad name");
+      setError("enter your name");
       return false;
     }
     return true;
@@ -31,7 +30,7 @@ export default function Register() {
 
   const okId = () => {
     if (isNaN(id) || id.length !== 9) {
-      setError("wrong id");
+      setError("ID must be 9 digits long");
       // alert("wrong id");
       return false;
     } else {
@@ -41,7 +40,7 @@ export default function Register() {
 
   const okCarNum = () => {
     if (!carNum || isNaN(carNum)) {
-      setError("wrong carNum");
+      setError("enter your car number");
       return false;
     } else {
       return true;
@@ -50,7 +49,7 @@ export default function Register() {
 
   const okPhone = () => {
     if (isNaN(phone) || phone.length < 7) {
-      setError("wrong phone");
+      setError("phone number must be at least 7 digits long");
       return false;
     } else {
       return true;
@@ -82,7 +81,7 @@ export default function Register() {
     <div className="">
       <h1 className="text-primary">new client</h1>
       <div>
-        {error && <p>{error}</p>}
+        {error && <p className="text-danger card lead">{error}</p>}
         <input
           placeholder="full name"
           value={name}
@@ -90,6 +89,7 @@ export default function Register() {
           type="text"
         ></input>
         <br />
+        {/* {!okName() && <h4 style={{ color: "red" }}>some chars...</h4>} */}
         <input
           placeholder="id"
           value={id}
