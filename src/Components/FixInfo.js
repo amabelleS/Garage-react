@@ -4,7 +4,7 @@ import React from "react";
 export default function FixInfo({ id, cars }) {
   const fix = cars.find((car) => (car.id = id));
   console.log(fix);
-
+  // TO FIX!!
   return (
     <div className="btn">
       <p>{fix.id}</p>
