@@ -5,10 +5,11 @@ const UsersContext = React.createContext();
 
 function UsersProvider({ children }) {
   const [users, setUsers] = React.useState([]);
-  // const [user, setUser] = React.useState({});
+  const [user, setUser] = React.useState({});
 
-  const addUser = (user) => {
-    setUsers([...users, user]);
+  const addUser = (u) => {
+    setUsers([...users, u]);
+    setUser(u);
   };
 
   const isUserIdOnList = (id) => {
@@ -23,7 +24,9 @@ function UsersProvider({ children }) {
   // };
 
   return (
-    <UsersContext.Provider value={{ users, addUser, isUserIdOnList }}>
+    <UsersContext.Provider
+      value={{ users, addUser, setUser, user, isUserIdOnList }}
+    >
       {children}
     </UsersContext.Provider>
   );

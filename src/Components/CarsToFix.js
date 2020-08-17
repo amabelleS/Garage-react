@@ -5,7 +5,7 @@ import { CarContext } from "../Context/CarProblems";
 export default function CarsToFix({ id }) {
   const { carProblems, findUserProblems } = React.useContext(CarContext);
   // const { user } = React.useContext(UsersContext);
-  // const userCars = user.id;
+  // const userCars = user.id;...
 
   const displayTime = (num) => {
     let hours = num % 9;
@@ -36,7 +36,7 @@ export default function CarsToFix({ id }) {
   };
 
   const renderTableHeader = () => {
-    //   let allKeys = Object.keys(carProblems[0]);
+    //   const allKeys = Object.keys(carProblems[0]);
     const header = ["ID", "DURATION", "COST", "description"];
     return header.map((k, i) => {
       return <th key={i}>{k}</th>;

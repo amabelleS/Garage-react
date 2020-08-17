@@ -25,11 +25,6 @@ export default function UserInfo(props) {
         <p className="m-1 p paint-darkSec small-card">
           <span>Car Num: {carNum}</span>
         </p>
-        {/* <p className="p paint-darkSec"></p>
-      <p className="paint-darkSec">{adress}</p>
-      <p className="small-card">{}</p>
-      <p className="small-card paint-darkSec">{carNum}</p> */}
-        {/* <button onClick={props.toggleInfo}>hide</button> */}
       </div>
     </div>
   );

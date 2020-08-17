@@ -14,11 +14,6 @@ export default function Register() {
 
   const { isUserIdOnList, addUser } = React.useContext(UsersContext);
 
-  //erroes
-  // const writeError = (err) => {
-  //   setError(err);
-  // };
-
   //validations:
   const okName = () => {
     if (!isNaN(name)) {
@@ -31,7 +26,6 @@ export default function Register() {
   const okId = () => {
     if (isNaN(id) || id.length !== 9) {
       setError("ID must be 9 digits long");
-      // alert("wrong id");
       return false;
     } else {
       return true;
@@ -73,7 +67,6 @@ export default function Register() {
     setError("");
     if (isUserIdOnList(id)) {
       alert("This ID already exist in repo");
-      // return false
     } else if (!isUserIdOnList(id) && validateAll()) {
       let user = { name, id, adress, phone, carNum };
       addUser(user);

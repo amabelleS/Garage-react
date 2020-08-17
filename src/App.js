@@ -1,3 +1,5 @@
+// check this up on:  https://mamas-garage.netlify.app/
+
 import React from "react";
 import "./App.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
@@ -42,6 +44,4 @@ function App() {
 
 export default App;
 
-// git remote add origin https://github.com/amabelleS/Garage-react.git
-
-// check this up on:  https://simple-garage.netlify.app/
+// check this up on:  https://mamas-garage.netlify.app/
