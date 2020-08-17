@@ -9,7 +9,7 @@ export default function UserInfo(props) {
     <div>
       {" "}
       <h3 className="alert">User Info</h3>
-      <div className="grid-5">
+      <div className="flex-1">
         <p className="m-1 p paint-darkSec small-card">
           <span>Name: {name}</span>
         </p>

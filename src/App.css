@@ -222,7 +222,8 @@ img {
 /* flex */
 .flex-1 {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
+  flex-wrap: wrap;
 }
 
 .flex-2 {

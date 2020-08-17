@@ -1,15 +1,13 @@
 import React from "react";
-// import { UsersContext } from "../Context/Users";
 import { CarContext } from "../Context/CarProblems";
 
 export default function CarsToFix({ id }) {
   const { carProblems, findUserProblems } = React.useContext(CarContext);
-  // const { user } = React.useContext(UsersContext);
-  // const userCars = user.id;...
 
   const displayTime = (num) => {
     let hours = num % 9;
     let days = Math.floor(num / 9);
+
     if (days === 0) return `${hours} hours`;
     if (days === 1 && !hours) return `${days} day`;
     if (days === 1 && hours) return `${days} day and ${hours} hours`;

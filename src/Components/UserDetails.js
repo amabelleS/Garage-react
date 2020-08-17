@@ -70,12 +70,12 @@ export default function UserDetails() {
             : "enter"}
         </button>
       </div>
+      {showInfo && <UserInfo id={id} />}
       {searchValue && showCarDetail ? (
         <FixInfo id={searchValue} carProblems={carProblems} />
       ) : (
         ""
       )}
-      {showInfo && <UserInfo id={id} />}
       {showCars && <CarsToFix id={id} />}
     </div>
   );
