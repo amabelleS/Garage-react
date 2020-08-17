@@ -9,7 +9,10 @@ function UsersProvider({ children }) {
 
   const addUser = (user) => {
     setUsers([...users, user]);
-    // setUser(user);
+  };
+
+  const isUserIdOnList = (id) => {
+    return users.filter((user) => user.id === id).length > 0;
   };
 
   // const updateUserFixList = (userId, fixId) => {
@@ -20,7 +23,7 @@ function UsersProvider({ children }) {
   // };
 
   return (
-    <UsersContext.Provider value={{ users, addUser }}>
+    <UsersContext.Provider value={{ users, addUser, isUserIdOnList }}>
       {children}
     </UsersContext.Provider>
   );

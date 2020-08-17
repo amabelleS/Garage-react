@@ -37,7 +37,7 @@ export default function CarsToFix({ id }) {
 
   const renderTableHeader = () => {
     //   let allKeys = Object.keys(carProblems[0]);
-    const header = ["ID", "TIME", "COST", "description"];
+    const header = ["ID", "DURATION", "COST", "description"];
     return header.map((k, i) => {
       return <th key={i}>{k}</th>;
     });

@@ -11,7 +11,7 @@ export default function UserInfo(props) {
       <h3 className="alert">User Info</h3>
       <div className="grid-5">
         <p className="m-1 p paint-darkSec small-card">
-          <span>NAME: {name}</span>
+          <span>Name: {name}</span>
         </p>
         <p className="m-1 p paint-darkSec small-card">
           <span>ID: {id}</span>
@@ -20,10 +20,10 @@ export default function UserInfo(props) {
           <span>Adress: {adress}</span>
         </p>
         <p className="m-1 p paint-darkSec small-card">
-          <span>ID: {phone}</span>
+          <span>Phone: {phone}</span>
         </p>
         <p className="m-1 p paint-darkSec small-card">
-          <span>car: {carNum}</span>
+          <span>Car Num: {carNum}</span>
         </p>
         {/* <p className="p paint-darkSec"></p>
       <p className="paint-darkSec">{adress}</p>

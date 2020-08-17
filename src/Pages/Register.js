@@ -12,7 +12,7 @@ export default function Register() {
   const [carNum, setCarNaum] = useState("");
   const [error, setError] = useState();
 
-  const { addUser } = React.useContext(UsersContext);
+  const { isUserIdOnList, addUser } = React.useContext(UsersContext);
 
   //erroes
   // const writeError = (err) => {
@@ -71,7 +71,10 @@ export default function Register() {
 
   const handelSubmit = () => {
     setError("");
-    if (validateAll()) {
+    if (isUserIdOnList(id)) {
+      alert("This ID already exist in repo");
+      // return false
+    } else if (!isUserIdOnList(id) && validateAll()) {
       let user = { name, id, adress, phone, carNum };
       addUser(user);
       history.push("/");
