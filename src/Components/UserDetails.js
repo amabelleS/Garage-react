@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { UsersContext } from "../Context/Users";
+// import { UsersContext } from "../Context/Users";
 import { CarContext } from "../Context/CarProblems";
 import { useParams } from "react-router-dom";
 import UserInfo from "../Components/UserInfo";
@@ -7,16 +7,19 @@ import CarsToFix from "../Components/CarsToFix";
 import FixInfo from "../Components/FixInfo";
 
 export default function UserDetails() {
-  const { users, setUsers } = React.useContext(UsersContext);
-  const { carProblems, addProblem } = React.useContext(CarContext);
+  // const { users, updateUserFixList } = React.useContext(UsersContext);
+  const { carProblems, addProblem, findUserProblems } = React.useContext(
+    CarContext
+  );
 
   const { id } = useParams();
-  const user = users.find((user) => user.id === id);
+  // const user = users.find((user) => user.id === id);
+  const userProblems = findUserProblems(id, carProblems);
 
   const [showInfo, setShowInfo] = useState(false);
   const [showCars, setShowCars] = useState(false);
-  const [toggleCarDetail, setToggleCarDetails] = useState(false);
-  const [searchValue, setSearchValue] = React.useState();
+  const [showCarDetail, setShowCarDetails] = useState(false);
+  const [searchValue, setSearchValue] = useState();
 
   const toggleInfo = () => {
     setShowInfo(!showInfo);
@@ -26,23 +29,16 @@ export default function UserDetails() {
   };
 
   const isProblem = () => {
-    return user.toFixId.includes(searchValue);
+    return userProblems.filter((p) => p.id === searchValue).length > 0;
   };
 
   const handelSubmit = () => {
     if (isProblem()) {
-      setToggleCarDetails(!toggleCarDetail);
-    } else {
+      setShowCarDetails(!showCarDetail);
+    } else if (searchValue && !isProblem()) {
       alert("adding...");
       addProblem(searchValue, id);
-
-      let updatedUsers = users.map((user) =>
-        user.id === id
-          ? { ...user, toFixId: [...user.toFixId, searchValue] }
-          : user
-      );
-      setUsers(updatedUsers);
-    }
+    } else alert("pls enter search value");
   };
 
   return (
@@ -65,17 +61,16 @@ export default function UserDetails() {
         ></input>
         <button className="btn btn-primary btn-radius" onClick={handelSubmit}>
           {searchValue
-            ? user.toFixId
-              ? `${isProblem() ? "show" : "add"}`
+            ? isProblem()
+              ? showCarDetail
+                ? "hide"
+                : "show"
               : "add"
             : "enter"}
         </button>
-
-        <div>
-          {toggleCarDetail && <FixInfo id={searchValue} cars={carProblems} />}
-        </div>
       </div>
-      {showInfo && <UserInfo toggleInfo={toggleInfo} id={id} />}
+      {showCarDetail && <FixInfo id={searchValue} carProblems={carProblems} />}
+      {showInfo && <UserInfo id={id} />}
       {showCars && <CarsToFix id={id} />}
     </div>
   );

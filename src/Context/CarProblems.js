@@ -21,25 +21,26 @@ const mockProblem = [
 const CarContext = React.createContext();
 
 function CarProvider({ children }) {
-  const [carProblems, setProblems] = React.useState([...mockProblem]);
+  const [carProblems, setProblems] = React.useState([]);
 
-  const { setUsers } = React.useContext(UsersContext);
+  const addProblem = (pId, uId) => {
+    const newProblem = {
+      id: pId,
+      desc:
+        "for now time is a random num between 1-42, and cost a rnd between 1-4200",
+      time: Math.floor(Math.random() * 42) + 1,
+      cost: Math.floor(Math.random() * 4200) + 1,
+      userId: uId,
+    };
+    setProblems([...carProblems, newProblem]);
+  };
 
-  const addProblem = (n, id) => {
-    setProblems([
-      ...carProblems,
-      {
-        id: n,
-        desc: "lorem sed risus ultricies tristique nulla",
-        time: 0,
-        cost: 77,
-        userId: id,
-      },
-    ]);
+  const findUserProblems = (userId, problems) => {
+    return problems.filter((p) => p.userId === userId);
   };
 
   return (
-    <CarContext.Provider value={{ carProblems, addProblem }}>
+    <CarContext.Provider value={{ carProblems, addProblem, findUserProblems }}>
       {children}
     </CarContext.Provider>
   );

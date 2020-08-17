@@ -6,8 +6,8 @@ export default function UsersList({ users, by }) {
     if (by) {
       return (
         <div>
-          {users.map((user) => (
-            <Link to={`/home/${user.id}`} className="card-1">
+          {users.map((user, i) => (
+            <Link key={i} to={`/home/${user.id}`} className="card-1">
               {user.id}{" "}
             </Link>
           ))}
@@ -16,11 +16,15 @@ export default function UsersList({ users, by }) {
     } else {
       return (
         <div>
-          {users.map((user) => (
-            <Link key={user.id} to={`/home/${user.id}`} className="card-1">
-              {user.carNum}{" "}
-            </Link>
-          ))}
+          {users.map((user) => {
+            return (
+              <div key={user.id}>
+                <Link to={`/home/${user.id}`} className="card-1">
+                  {user.carNum}{" "}
+                </Link>{" "}
+              </div>
+            );
+          })}
         </div>
       );
     }

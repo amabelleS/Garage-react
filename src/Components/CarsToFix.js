@@ -1,31 +1,31 @@
 import React from "react";
-import { UsersContext } from "../Context/Users";
+// import { UsersContext } from "../Context/Users";
 import { CarContext } from "../Context/CarProblems";
 
 export default function CarsToFix({ id }) {
-  const { carProblems, addProblem } = React.useContext(CarContext);
-  //   console.log(carProblems);
-  const { user } = React.useContext(UsersContext);
-  const userCars = user.id;
+  const { carProblems, findUserProblems } = React.useContext(CarContext);
+  // const { user } = React.useContext(UsersContext);
+  // const userCars = user.id;
 
   const displayTime = (num) => {
     let hours = num % 9;
     let days = Math.floor(num / 9);
     if (days === 0) return `${hours} hours`;
-    if (days === 1 && !hours) return `One ${days}`;
-    if (days === 1 && hours) return `One ${days} and ${hours} hours`;
+    if (days === 1 && !hours) return `${days} day`;
+    if (days === 1 && hours) return `${days} day and ${hours} hours`;
     if (days > 1 && !hours) return `${days} days`;
     if (days > 1 && hours) return `${days} days and ${hours} hours`;
   };
 
   let totalCost = 0;
+  const userProblems = findUserProblems(id, carProblems);
 
   const renderTableData = () => {
-    return carProblems.map((car) => {
+    return userProblems.map((car, i) => {
       const { id, desc, cost, time } = car;
       totalCost += car.cost;
       return (
-        <tr key={id}>
+        <tr key={i}>
           <td>{id}</td>
           <td>{displayTime(time)}</td>
           <td>{cost}</td>

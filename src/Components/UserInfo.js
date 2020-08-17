@@ -6,13 +6,31 @@ export default function UserInfo(props) {
   const user = users.find((user) => user.id === props.id);
   const { name, id, adress, phone, carNum } = user;
   return (
-    <div className="container grid-4">
-      <p>{name}</p>
-      <p>{id}</p>
-      <p>{adress}</p>
-      <p>{phone}</p>
-      <p>{carNum}</p>
-      {/* <button onClick={props.toggleInfo}>hide</button> */}
+    <div>
+      {" "}
+      <h3 className="alert">User Info</h3>
+      <div className="grid-5">
+        <p className="m-1 p paint-darkSec small-card">
+          <span>NAME: {name}</span>
+        </p>
+        <p className="m-1 p paint-darkSec small-card">
+          <span>ID: {id}</span>
+        </p>
+        <p className="m-1 p paint-darkSec small-card">
+          <span>Adress: {adress}</span>
+        </p>
+        <p className="m-1 p paint-darkSec small-card">
+          <span>ID: {phone}</span>
+        </p>
+        <p className="m-1 p paint-darkSec small-card">
+          <span>car: {carNum}</span>
+        </p>
+        {/* <p className="p paint-darkSec"></p>
+      <p className="paint-darkSec">{adress}</p>
+      <p className="small-card">{}</p>
+      <p className="small-card paint-darkSec">{carNum}</p> */}
+        {/* <button onClick={props.toggleInfo}>hide</button> */}
+      </div>
     </div>
   );
 }
