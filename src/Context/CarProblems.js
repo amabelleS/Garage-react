@@ -1,6 +1,5 @@
 import React from "react";
 import uuid from "react-uuid";
-import { UsersContext } from "../Context/Users";
 
 const mockProblem = [
   {

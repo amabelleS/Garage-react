@@ -69,7 +69,9 @@ export default function UserDetails() {
             : "enter"}
         </button>
       </div>
-      {showCarDetail && <FixInfo id={searchValue} carProblems={carProblems} />}
+      {showCarDetail && searchValue && (
+        <FixInfo id={searchValue} carProblems={carProblems} />
+      )}
       {showInfo && <UserInfo id={id} />}
       {showCars && <CarsToFix id={id} />}
     </div>
