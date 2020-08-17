@@ -5,7 +5,12 @@ import UsersList from "../Components/UsersList";
 
 export default function Home() {
   const history = useHistory();
-  const { users, user, setUser } = React.useContext(UsersContext);
+  const {
+    users,
+    isUserOnListByCarNum,
+    isUserOnListById,
+    findUserByCarNum,
+  } = React.useContext(UsersContext);
 
   const [id, setId] = useState(true);
   const [carNum, setCarNum] = useState(false);
@@ -15,12 +20,11 @@ export default function Home() {
     if (searchValue === "666") {
       history.push("/admin");
     }
-    if (searchValue === user.id) {
-      setUser(user.id);
-      history.push(`/home/${user.id}`);
+    if (isUserOnListById(searchValue)) {
+      history.push(`/home/${searchValue}`);
     }
-    if (searchValue === user.carNum) {
-      setUser(user.id);
+    if (isUserOnListByCarNum(searchValue)) {
+      const user = findUserByCarNum(searchValue);
       history.push(`/home/${user.id}`);
     }
   };

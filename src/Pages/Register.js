@@ -12,7 +12,9 @@ export default function Register() {
   const [carNum, setCarNaum] = useState("");
   const [error, setError] = useState();
 
-  const { isUserIdOnList, addUser } = React.useContext(UsersContext);
+  const { isUserOnListById, isUserOnListByCarNum, addUser } = React.useContext(
+    UsersContext
+  );
 
   //validations:
   const okName = () => {
@@ -65,9 +67,16 @@ export default function Register() {
 
   const handelSubmit = () => {
     setError("");
-    if (isUserIdOnList(id)) {
+    if (isUserOnListById(id)) {
       alert("This ID already exist in repo");
-    } else if (!isUserIdOnList(id) && validateAll()) {
+    }
+    if (isUserOnListByCarNum(carNum)) {
+      alert("This Car number already exist in repo");
+    } else if (
+      !isUserOnListById(id) &&
+      !isUserOnListByCarNum(carNum) &&
+      validateAll()
+    ) {
       let user = { name, id, adress, phone, carNum };
       addUser(user);
       history.push("/");
