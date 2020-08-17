@@ -20,6 +20,7 @@ export default function UserDetails() {
   const [showCars, setShowCars] = useState(false);
   const [showCarDetail, setShowCarDetails] = useState(false);
   const [searchValue, setSearchValue] = useState();
+  const [fixId, setFixId] = useState();
 
   const toggleInfo = () => {
     setShowInfo(!showInfo);
@@ -35,6 +36,10 @@ export default function UserDetails() {
   const handelSubmit = () => {
     if (isProblem()) {
       setShowCarDetails(!showCarDetail);
+      // if show on => set fixId to...
+      // if (showCarDetail) setFixId(searchValue);
+      // if show on and no value
+      if (showCarDetail && !searchValue) setShowCarDetails(!showCarDetail);
     } else if (searchValue && !isProblem()) {
       alert("adding...");
       addProblem(searchValue, id);
@@ -69,8 +74,10 @@ export default function UserDetails() {
             : "enter"}
         </button>
       </div>
-      {showCarDetail && searchValue && (
+      {searchValue && showCarDetail ? (
         <FixInfo id={searchValue} carProblems={carProblems} />
+      ) : (
+        ""
       )}
       {showInfo && <UserInfo id={id} />}
       {showCars && <CarsToFix id={id} />}
