@@ -19,14 +19,12 @@ export default function Home() {
   const handelSearch = () => {
     if (searchValue === "666") {
       history.push("/admin");
-    }
-    if (isUserOnListById(searchValue)) {
+    } else if (isUserOnListById(searchValue)) {
       history.push(`/home/${searchValue}`);
-    }
-    if (isUserOnListByCarNum(searchValue)) {
+    } else if (isUserOnListByCarNum(searchValue)) {
       const user = findUserByCarNum(searchValue);
       history.push(`/home/${user.id}`);
-    }
+    } else alert("pls register first or check your nums");
   };
 
   return (
