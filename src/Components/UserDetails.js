@@ -46,7 +46,7 @@ export default function UserDetails() {
     <div>
       <div>
         <button className="btn btn-sec" onClick={toggleCars}>
-          history
+          {showCars ? "hide history" : "fix history"}
         </button>
         <button className="btn btn-third" onClick={toggleInfo}>
           {!showInfo ? "user details" : "hide info"}

@@ -12,6 +12,18 @@ export default function Register() {
   const [carNum, setCarNaum] = useState("");
   const [error, setError] = useState();
 
+  // const [inputValues, setInputValues] = useState({
+  //   name: "",
+  //   id: "",
+  //   adress: "",
+  //   phone: "",
+  //   carNum: "",
+  // });
+
+  // const handelChange = (e) => {
+  //   setInputValues({ [e.target.name]: e.target.value });
+  // };
+
   const { isUserOnListById, isUserOnListByCarNum, addUser } = React.useContext(
     UsersContext
   );

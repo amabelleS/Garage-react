@@ -546,12 +546,12 @@ table th {
   border-radius: 6px;
   background-color: lemonchiffon;
   padding: 0.4rem;
-  margin: 1rem 3rem;
+  margin: 1rem auto;
   box-shadow: 2px 3px 4px 1px rgba(198, 201, 40, 0.68);
 
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: center;
 }
 
 .card-1:hover {
