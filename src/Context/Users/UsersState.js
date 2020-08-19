@@ -1,9 +1,10 @@
 import React from "react";
+import UsersContext from "./usersContext";
 // import { useLocalStorageState } from "../Hooks/useLocalStorageSate";
 
-const UsersContext = React.createContext();
+// const UsersContext = React.createContext();
 
-function UsersProvider({ children }) {
+function UsersState({ children }) {
   const [users, setUsers] = React.useState([]);
   const [user, setUser] = React.useState({});
 
@@ -53,4 +54,4 @@ function UsersProvider({ children }) {
   );
 }
 
-export { UsersContext, UsersProvider };
+export { UsersState };

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 // import { UsersContext } from "../Context/Users";
-import { CarContext } from "../Context/CarProblems";
+import { CarContext } from "../Context/Fixings/CarProblems";
 import { useParams } from "react-router-dom";
 import UserInfo from "../Components/UserInfo";
 import CarsToFix from "../Components/CarsToFix";

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { UsersContext } from "../Context/Users";
+import UsersContext from "../Context/Users/usersContext";
 import { Link, useHistory } from "react-router-dom";
 import UsersList from "../Components/UsersList";
 

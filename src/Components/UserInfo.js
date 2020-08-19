@@ -1,5 +1,5 @@
 import React from "react";
-import { UsersContext } from "../Context/Users";
+import UsersContext from "../Context/Users/usersContext";
 
 export default function UserInfo(props) {
   const { users } = React.useContext(UsersContext);

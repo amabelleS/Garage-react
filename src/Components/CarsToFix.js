@@ -1,5 +1,5 @@
 import React from "react";
-import { CarContext } from "../Context/CarProblems";
+import { CarContext } from "../Context/Fixings/CarProblems";
 
 export default function CarsToFix({ id }) {
   const { carProblems, findUserProblems } = React.useContext(CarContext);
