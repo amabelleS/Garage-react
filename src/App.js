@@ -13,7 +13,7 @@ import Navbar from "./Components/Layout/Navbar";
 import Register from "./Pages/Register";
 import UserDetails from "./Components/UserDetails";
 import Admin from "./Pages/Admin";
-import NotFound from "./Pages/NotFound";
+// import NotFound from "./Pages/NotFound";
 
 function App() {
   return (

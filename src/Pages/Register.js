@@ -100,10 +100,11 @@ export default function Register() {
       <div>
         {error && <p className="text-danger card lead">{error}</p>}
         <input
-          placeholder="full name"
+          placeholder="enter your name"
           value={name}
           onChange={(e) => setName(e.target.value)}
           type="text"
+          autoFocus
         ></input>
         <br />
         {/* {!okName() && <h4 style={{ color: "red" }}>some chars...</h4>} */}
